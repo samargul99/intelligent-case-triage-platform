@@ -1,257 +1,118 @@
-🧾 Business Requirements Document (BRD)
-Intelligent Case Triage & Claims Insights Platform
-1. Project Overview
+# Business Requirements Document (BRD)
+## Intelligent Case Triage & Claims Insights Platform
 
+## 1. Project Overview
 Organizations that manage high volumes of support or claim cases struggle with manual triage, inconsistent routing, SLA breaches, and limited visibility into operational performance.
-This project simulates an end-to-end system that enhances:
 
-Case intake & routing (Salesforce)
+This project simulates an end-to-end intelligent case triage and analytics workflow using:
 
-Data processing & engineering (Databricks)
+- Salesforce (case intake and routing)
+- Databricks (data engineering and ML)
+- Snowflake (analytics warehouse)
+- SQL (transformations and analysis)
+- AI/ML (classification and risk prediction)
 
-AI-driven predictions (ML)
-
-Analytics & insights (Snowflake + SQL)
-
-The result is a realistic, enterprise-style workflow for your portfolio.
-
-2. Business Problem
-
+## 2. Business Problem
 Companies face challenges such as:
 
-Manual & inconsistent triage
-
-Incorrect case routing
-
-High SLA breach rates
-
-Limited visibility into backlog & issues
-
-Scattered data across multiple systems
-
-This leads to:
-
-Inefficient operations
-
-Customer dissatisfaction
-
-Poor decision-making
-
-Delays in resolving claims
-
-3. Project Goals & Objectives
-Primary Goals
-
-Automate case routing through Salesforce flows
-
-Process, clean, and enrich data in Databricks
-
-Use ML to predict:
-
-Case category
-
-SLA breach risk
-
-Build Snowflake data warehouse tables for analytics
-
-Generate insights through SQL queries
-
-Success Metrics
-
-Reduce manual routing by 50%
-
-Improve routing accuracy by 30%
-
-Identify SLA-risk cases with 70%+ accuracy
-
-Provide leadership with real-time dashboards
-
-4. Scope
-✔ In Scope
-
-Salesforce case configuration
-
-Routing flows
-
-Synthetic case data creation
-
-Export → Databricks ingestion
-
-SQL cleaning & transformations
-
-ML modeling for classification & SLA prediction
-
-Snowflake fact/dimension modeling
-
-SQL insights & dashboards
-
-Documentation in GitHub
-
-❌ Out of Scope
-
-Real PHI/PII data
-
-Live API integrations
-
-Production-grade ML pipelines
-
-Real-time streaming
-
-5. Stakeholders / Actors
-Actor	Role
-Customer	Submits a claim/support request
-Support Agent	Creates/updates Salesforce cases
-Claims Analyst	Works assigned case queues
-Supervisor	Monitors SLA and escalations
-Data Engineer	Manages data in Databricks
-Data Analyst	Queries Snowflake
-ML Model	Predicts category & SLA risk
-Leadership	Uses dashboards for decisions
-6. Use Cases
-Use Case 1 — Case Intake
-
-Agent logs case
-
-Required fields captured
-
-SLA timer starts
-
-Use Case 2 — Auto Routing
-
-Salesforce keywords → auto-category
-
-Flow assigns case to correct queue
-
-Use Case 3 — Escalation
-
-If case sits too long → Flow escalates
-
-Use Case 4 — Data Transformation (Databricks)
-
-Salesforce CSV uploaded
-
-SQL transformations applied
-
-Feature engineering added
-
-Use Case 5 — ML Predictions
-
-Model classifies category
-
-Model predicts risk of SLA breach
-
-Use Case 6 — Analytics (Snowflake)
-
-Load curated dataset
-
-Build fact/dimension tables
-
-KPI SQL queries built
-
-7. Functional Requirements
-Salesforce Requirements
-
-Create fields: Category, SLA Target, Risk Score
-
-Create Routing Queues
-
-Build Flows for:
-
-Auto-category
-
-Auto-routing
-
-Escalation
-
-Dashboards for SLA, backlog, categories
-
-Export CSVs
-
-Databricks Requirements
-
-Upload case CSV
-
-Create Delta tables
-
-Clean & normalize using SQL
-
-Feature engineering
-
-Train ML model (classification + risk prediction)
-
-Generate curated dataset
-
-Snowflake Requirements
-
-Create DB + Schema
-
-Load curated datasets
-
-Create FactCase, DimCategory, DimPriority
-
-Write KPI SQL queries
-
-Enable BI connectivity
-
-Documentation Requirements
-
-BRD
-
-Data model
-
-Architecture diagram
-
-Case study write-up
-
-SQL & notebook storage in GitHub
-
-8. Non-Functional Requirements
-Area	Requirement
-Performance	Handle ~50k synthetic cases
-Security	No PHI/PII; synthetic data only
-Usability	Dashboards must be intuitive
-Maintainability	Notebooks & SQL reproducible
-Reliability	Data pipeline repeatable
-9. Assumptions
-
-All tools use free tiers
-
-Data is synthetic
-
-Simple ML models are acceptable
-
-Single-user environment
-
-No external APIs needed
-
-10. Risks & Mitigations
-Risk	Mitigation
-ML complexity	Use logistic regression or simple tree models
-Snowflake credit use	Optimize queries; small warehouse
-Tool limitations	Stick to supported free features
-Data quality issues	Generate deterministic synthetic datasets
-11. Success Criteria
-
-The project is successful when:
-
-Routing automation works in Salesforce
-
-Databricks pipeline runs end-to-end
-
-ML model generates predictions
-
-Snowflake analytics tables are populated
-
-SQL queries return meaningful insights
-
-Documentation is complete & professional
-
-12. Appendices
-
-A: Sample Case Data Format
-
-B: Flow Diagram Draft
-
-C: Data Model Draft
-
-D: Folder Structure
+- Manual and inconsistent triage  
+- Incorrect case routing  
+- High SLA breach rates  
+- Limited visibility into backlog trends  
+- No early identification of risky cases  
+
+This results in:
+
+- Inefficiencies  
+- Customer dissatisfaction  
+- Delayed resolutions  
+- Poor visibility for leadership  
+
+## 3. Project Goals and Objectives
+
+### Primary Goals
+1. Automate case categorization and routing in Salesforce  
+2. Clean, transform, and enhance data using Databricks  
+3. Build ML models for case classification and SLA risk scoring  
+4. Build Snowflake warehouse tables for analytics  
+5. Deliver actionable insights using SQL  
+
+### Success Measures
+- Reduce manual routing by 50%  
+- Improve routing accuracy by 30%  
+- Predict SLA-risk cases with at least 70% accuracy  
+- Provide KPI visibility across backlog, SLA, and case categories  
+
+## 4. Scope
+
+### In Scope
+- Salesforce Case configuration  
+- Routing flows and escalations  
+- Synthetic case data generation  
+- Databricks SQL transformations  
+- ML classification and prediction  
+- Snowflake warehouse tables  
+- SQL analytics queries  
+- Documentation and GitHub structure  
+
+### Out of Scope
+- Real PHI/PII data  
+- Production-grade ML pipelines  
+- API integrations between systems  
+- Real-time dashboards  
+
+## 5. Stakeholders and Actors
+
+| Actor | Description |
+|-------|-------------|
+| Customer | Submits support/claim requests |
+| Support Agent | Logs and updates cases in Salesforce |
+| Claims Analyst | Works assigned cases |
+| Supervisor | Monitors SLA and escalations |
+| Data Engineer | Builds Databricks pipelines |
+| Data Analyst | Queries Snowflake |
+| ML Model | Generates predictions |
+| Leadership | Uses insights and dashboards |
+
+## 6. Use Cases
+
+### Use Case 1: Case Intake
+- Case is created in Salesforce  
+- SLA timer begins  
+
+### Use Case 2: Automatic Routing
+- Case category determined by keywords  
+- Case assigned to appropriate queue  
+
+### Use Case 3: Escalation
+- Case escalated if no activity before SLA deadline  
+
+### Use Case 4: Data Processing (Databricks)
+- Salesforce data exported as CSV  
+- Databricks cleans and engineers data  
+
+### Use Case 5: Machine Learning
+- Model predicts case category  
+- Model predicts SLA risk  
+
+### Use Case 6: Analytics and Reporting (Snowflake)
+- Curated data loaded into Snowflake  
+- Queries return KPIs such as SLA breach rate, backlog size, etc.  
+
+## 7. Functional Requirements
+
+### Salesforce Requirements
+1. Create Case fields (Category, SLA Target, Risk Score)  
+2. Create Routing Queues  
+3. Create Flows for:
+   - Auto-categorization  
+   - Auto-routing  
+   - Escalations  
+4. Build operational dashboards  
+5. Export data as CSV  
+
+### Databricks Requirements
+6. Upload Salesforce CSV  
+7. Clean and normalize data using SQL  
+8. Engineer features such as description length and keywords  
+9. Tr
