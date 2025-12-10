@@ -115,4 +115,60 @@ This results in:
 6. Upload Salesforce CSV  
 7. Clean and normalize data using SQL  
 8. Engineer features such as description length and keywords  
-9. Tr
+9. Train a classification model  
+10. Predict SLA risk  
+11. Export curated dataset  
+
+### Snowflake Requirements
+12. Create database and schema  
+13. Load curated dataset  
+14. Build Fact and Dimension tables  
+15. Write analytical SQL queries  
+16. Enable BI tool connectivity  
+
+### Documentation Requirements
+17. BRD, architecture diagram, data model  
+18. Store notebooks and SQL scripts in GitHub  
+19. Include screenshots and case study summary  
+
+## 8. Non-Functional Requirements
+
+| Category | Requirement |
+|----------|-------------|
+| Performance | Must process up to 50k synthetic cases |
+| Security | All data must be synthetic; no sensitive data |
+| Usability | Dashboards must be clear for non-technical users |
+| Reliability | Pipeline must be repeatable |
+| Maintainability | Code stored with clear folder structure |
+
+## 9. Assumptions
+- All tools use free-tier or trial access  
+- Data is synthetic  
+- ML models remain simple (Logistic Regression, Decision Tree)  
+- Manual CSV-based data transfer between systems  
+
+## 10. Risks and Mitigations
+
+| Risk | Mitigation |
+|-------|------------|
+| ML complexity | Start with simple models |
+| Snowflake credit limits | Use small compute size |
+| Data inconsistencies | Use deterministic generated data |
+| Tool limitations | Stay within free features |
+
+## 11. Success Criteria
+The project is successful when:
+
+- Salesforce routing automation works  
+- Databricks transformation pipeline runs successfully  
+- ML model produces predictions  
+- Snowflake tables contain curated data  
+- SQL analytics generate meaningful KPIs  
+- Documentation is complete in GitHub  
+
+## 12. Appendices
+- A. Sample Case Data Structure  
+- B. Workflow Diagram (TO-BE)  
+- C. Data Model (Draft ERD)  
+- D. Folder Structure  
+
