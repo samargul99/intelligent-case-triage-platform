@@ -1,14 +1,4 @@
 
----
-
-## 2️⃣ Data Model (03_data_model.md)
-
-Now we define what tables/entities we’ll have.
-
-Open or create `docs/03_data_model.md` and paste this:
-
-```md
-# Data Model
 ## Intelligent Case Triage & Claims Insights Platform
 
 This document describes the logical data model used across Salesforce, Databricks, and Snowflake.
